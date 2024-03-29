@@ -7,7 +7,7 @@ public class Counter : MonoBehaviour
     [SerializeField] private TextMeshPro _text;
     [SerializeField] private float _delay = 0.5f;
 
-    private bool isRunning = false;
+    private bool _isRunning = false;
     private Coroutine _countCoroutine;
     private float _number = 0;
 
@@ -20,15 +20,15 @@ public class Counter : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (isRunning == false)
+            if (_isRunning == false)
             {
                 _countCoroutine = StartCoroutine(NumberCount(_delay));
-                isRunning = true;
+                _isRunning = true;
             }
             else
             {
                 StopCoroutine(_countCoroutine);               
-                isRunning = false;
+                _isRunning = false;
             }
         }
     }
